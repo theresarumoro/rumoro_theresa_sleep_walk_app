@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "rumoro_theresa_sleep_walk_app",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "rumoro_theresa_sleep_walk_app::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rumoro_theresa_sleep_walk_app-Debug-b84b5e4bf6f7a89bff31.json",
+					"name" : "rumoro_theresa_sleep_walk_app",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/tjrumoro/CLionProjects/rumoro_theresa_sleep_walk_app/cmake-build-debug",
+		"source" : "/home/tjrumoro/CLionProjects/rumoro_theresa_sleep_walk_app"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
