@@ -71,45 +71,45 @@ void choose_operation(){
     cin >> operation_chosen;
     //Checks to see if the user put in a number outside the desired range (1 to 6) and will call this function
     //again to restart the process.
-    if (operation_chosen < 1 || operation_chosen > 7) {
-        //Print statement to ask user for a valid input
-        cout << "\nPlease choose a valid option:" << endl;
-        //Call menu() function
-        menu();
-    }
-    //If statement checks to see if operation_chosen is 6
-    if (operation_chosen == 7) {
-    //Call helper_end() function
-        helper_end();
-    }
-    //if 1 was chosen
-    if (operation_chosen == 1){
-        //Call the addition function with the vector
-        addition(amazingVector);
-    }
-    //else if 2 was chosen
-    else if (operation_chosen == 2){
-    //Call the subtraction function with the vector
-    subtraction(amazingVector);
-    }
-    //else if 3 was chosen
-    else if (operation_chosen == 3){
-    //Call the multiplication function with the vector
-    multiplication(amazingVector);
-    }
-    //else if 4 was chosen
-    else if (operation_chosen == 4){
-    //Call the division function with the vector
-    division(amazingVector);
-    }
-    //else 5 was chosen
-    else {
-    //Call the average function with the vector
-    average(amazingVector);
-    }
-
-
-}
+//    if (operation_chosen < 1 || operation_chosen > 7) {
+//        //Print statement to ask user for a valid input
+//        cout << "\nPlease choose a valid option:" << endl;
+//        //Call menu() function
+//        menu();
+//    }
+//    //If statement checks to see if operation_chosen is 6
+//    if (operation_chosen == 7) {
+//    //Call helper_end() function
+//        helper_end();
+//    }
+//    //if 1 was chosen
+//    if (operation_chosen == 1){
+//        //Call the addition function with the vector
+//        addition(amazingVector);
+//    }
+//    //else if 2 was chosen
+//    else if (operation_chosen == 2){
+//    //Call the subtraction function with the vector
+//    subtraction(amazingVector);
+//    }
+//    //else if 3 was chosen
+//    else if (operation_chosen == 3){
+//    //Call the multiplication function with the vector
+//    multiplication(amazingVector);
+//    }
+//    //else if 4 was chosen
+//    else if (operation_chosen == 4){
+//    //Call the division function with the vector
+//    division(amazingVector);
+//    }
+//    //else 5 was chosen
+//    else {
+//    //Call the average function with the vector
+//    average(amazingVector);
+//    }
+//
+//
+//}
 
 
 
