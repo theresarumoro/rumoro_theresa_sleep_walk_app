@@ -19,16 +19,24 @@ using namespace std;
 
 //Declare functions
 void menu();
-void choose_operation();
-void personal_sleeping(sleeping_vector);
-void personal_walking(walking_vector);
-void compare(sleeping_array, walking_vector);
+void choose_operation(vector<int> sleeping_vector, vector<int> walking_vector);
+void personal_sleeping(vector<int> sleeping_vector);
+void personal_walking(vector<int> walking_vector);
+void compare(vector<int> sleeping_array, vector<int> walking_vector);
 void improve_health();
 void sleep_walk_app();
 void sources();
-int average(total_vector);
+int average(vector<int> total_vector);
 void helper_end();
-void graph();
+
+Individual Person1("Theresa", "Rumoro", "Tree", 20);
+//    vector<int> sleeping_vector;
+Sleep sleep(Person1);
+static vector<int> sleeping_vector = sleep.get_sleeping();
+//    vector<int> sleeping_vector;
+//    sleeping_vector = sleep.establish_sleeping();
+Activity walking(Person1);
+static vector<int> walking_vector = walking.get_steps();
 
 //Main introduces the user and calls the menu function
 int main(){
@@ -36,13 +44,27 @@ int main(){
     cout << "Welcome to the Sleep-Walk App!" << endl;
 
     //Call report individual to get information needed for first name last name and age
-
+//    Individual Person1("Theresa", "Rumoro", "Tree", 20);
     //Call report sleeping to get information
+//    Individual Person1("Theresa", "Rumoro", "Tree", 20);
+////    vector<int> sleeping_vector;
+//    Sleep sleep(Person1);
+//    static vector<int> sleeping_vector = sleep.get_sleeping();
+////    vector<int> sleeping_vector;
+////    sleeping_vector = sleep.establish_sleeping();
+//    Activity walking(Person1);
+//    static vector<int> walking_vector = walking.get_steps();
+//    walking_vector = walking.establish_walking();
+//    vector<int> sleeping_vector;
+//    Sleep sleep(Person1, sleeping_vector);
+//    sleeping_vector = sleep.establish_sleeping();
 
     //Call report steps to get information
-
+//    Activity();
     //Call menu function
-    menu();
+    cout << "sleep: " << sleeping_vector.size() << "steps: " << walking_vector.size() << endl;
+
+    choose_operation(sleeping_vector, walking_vector);
     return 0;
 }
 
@@ -59,143 +81,162 @@ void menu(){
     cout << "\t6. Sources" << endl;
     cout << "\t7. Exit" << endl;
     //Call choose_operation() function
-    choose_operation();
 }
 
 //Choose_operation function allows the user to pick one of the menu options
-void choose_operation(){
+void choose_operation(vector<int> sleeping_vector, vector<int> walking_vector){
+
+    menu();
     //Print statement for the user
+//    cout << "sleep: " << sleeping_vector.size() << "steps: " << walking_vector.size() << endl;
     cout << "\nPlease pick any of the options: " << endl;
     //Create a variable and then put the user input into that variable
     int operation_chosen;
     cin >> operation_chosen;
     //Checks to see if the user put in a number outside the desired range (1 to 6) and will call this function
     //again to restart the process.
-//    if (operation_chosen < 1 || operation_chosen > 7) {
-//        //Print statement to ask user for a valid input
-//        cout << "\nPlease choose a valid option:" << endl;
-//        //Call menu() function
-//        menu();
-//    }
-//    //If statement checks to see if operation_chosen is 6
-//    if (operation_chosen == 7) {
-//    //Call helper_end() function
-//        helper_end();
-//    }
-//    //if 1 was chosen
-//    if (operation_chosen == 1){
-//        //Call the addition function with the vector
-//        addition(amazingVector);
-//    }
-//    //else if 2 was chosen
-//    else if (operation_chosen == 2){
-//    //Call the subtraction function with the vector
-//    subtraction(amazingVector);
-//    }
-//    //else if 3 was chosen
-//    else if (operation_chosen == 3){
-//    //Call the multiplication function with the vector
-//    multiplication(amazingVector);
-//    }
-//    //else if 4 was chosen
-//    else if (operation_chosen == 4){
-//    //Call the division function with the vector
-//    division(amazingVector);
-//    }
-//    //else 5 was chosen
-//    else {
-//    //Call the average function with the vector
-//    average(amazingVector);
-//    }
-//
-//
-//}
+    if (operation_chosen < 1 || operation_chosen > 7) {
+        //Print statement to ask user for a valid input
+        cout << "\nPlease choose a valid option:" << endl;
+        //Call menu() function
+        menu();
+    }
+    //If statement checks to see if operation_chosen is 6
+    if (operation_chosen == 7) {
+    //Call helper_end() function
+        helper_end();
+    }
+    //if 1 was chosen
+    if (operation_chosen == 1){
+        //Call the personal_sleeping function with the vector
+        personal_sleeping(sleeping_vector);
+    }
+    //else if 2 was chosen
+    else if (operation_chosen == 2){
+        //Call the personal_walking function with the vector
+        personal_walking(walking_vector);
+    }
+    //else if 3 was chosen
+    else if (operation_chosen == 3){
+        //Call the compare function with the two vectors
+        compare(sleeping_vector, walking_vector);
+    }
+    //else if 4 was chosen
+    else if (operation_chosen == 4){
+        //Call the improve_health function
+        improve_health();
+    }
+    //else 5 was chosen
+    else if (operation_chosen == 5){
+        //Call the sleep_walk_app function
+        sleep_walk_app();
+    }
+    else if (operation_chosen == 6){
+        //Call the sources function
+        sources();
+    }
+}
+
+//Function to force the program to close if the user wants to do that
+void helper_end(){
+    //Print statement for the user
+    cout << "Exiting the program now, thank you for using the Sleep-Walk App!" << endl;
+    //Force exits the program
+    exit(0);
+}
 
 
+void personal_sleeping(vector<int> sleeping_vector){
+    //Print statement for the user
+    cout << "Sleeping hours information:" << endl;
+    cout << "size" << sleeping_vector.size() << endl;
+    //Print user's data
+    cout << "Your data:" << endl;
+    //For loop to iterate through the vector
+//    for (vector<Sleep>::iterator it = sleeping_vector.begin();
+//            it != sleeping_vector.end(); ++it);
+//    for (Sleep s : sleeping_vector)
+//        //Call report_sleeping_information with the vector sleeping object to print the information
+//        s.report_sleeping_information;
 
+    for (int x=0; x<sleeping_vector.size(); x++)
+        cout << sleeping_vector.at(x) << endl;
 
-/*
+    //Print average and call average function with sleeping_vector
+    cout << "Average: " << average(sleeping_vector) << endl;
+    //Call menu function
+    choose_operation(sleeping_vector, walking_vector);
+}
 
-Start choose_operation()
-Print statement to ask the user for a value from the menu
-	Create an integer variable, operation_chosen, and save user value to it
-	Create an if statement to make sure the user did not choose a value outside of the
-	menu options
-		Print statement to ask the user for a valid input
-		Call menu() function to allow the user to choose again
-	if operation_chosen is A:
-		Call personal_sleeping(sleeping_array)
-	else if operation_chosen is B:
-		Call subtraction(amazingVector)
-	else if operation_chosen is C:
-		Call multiplication(amazingVector)
-	else if operation_chosen is D:
-		Call division(amazingVector)
-	else if operation_chosen is E:
-		Call average(amazingVector)
-	else if operation_chosen is F:
-		Call average(amazingVector)
-	else operation_chosen is G:
-		Call helper_end()
-End choose_operation()
+void personal_walking(vector<int> walking_vector){
+    //Print statement for the user
+    cout << "Steps information:" << endl;
+    //Print user's data
+    cout << "Your data:" << endl;
+    //For loop to iterate through the vector
+    for (int x=0; x<walking_vector.size(); x++)
+        cout << walking_vector.at(x) << endl;
 
-Start helper_end()
-	Print exit statement for the user
-	Use exit(0) to force exit the program
-End helper_end()
+//    for (Activity a : walking_vector)
+//        //Call report_steps_information with the vector activity object to print the information
+//        a.report_steps_information;
+    cout << "Average: " << average(walking_vector) << endl;
+    //Call menu function
+    choose_operation(sleeping_vector, walking_vector);
+}
 
-Start personal_sleeping(sleeping_array)
-	Print that this will look at personal sleeping data
-Print all 7 days of data in sleeping_array to the user
-Call average(sleeping_array) function
-Print average for the user
-Call graph() function
-Call menu() function
-End personal_sleeping(sleeping_array)
+//Find average of vector information
+int average(vector <int> total_vector){
+    //Create average variable as double
+    double average = 0.0;
+    //Create sum variable as double
+    double sum = 0.0;
+    //Create vectorSize variable as int with the vector size
+    int vectorSize = total_vector.size();
+    //Iterate through the vector from the beginning to the end
+    //Reference below!
+    //https://stackoverflow.com/questions/3221812/how-to-sum-up-elements-of-a-c-vector
+    for (std::vector<int>::iterator it = total_vector.begin(); it != total_vector.end(); ++it)
+        //Add the values in the vector to the sum
+        sum += *it;
+    //Find average by dividing vectorSize by sum
+    average = sum/vectorSize;
+    //Return average
+    return average;
+}
 
-Start average(array)
-	Average = 0
-Sum = Add all numbers in array
-	Average = Divide by 7, total numbers in the array
-	Return average
-End average(array)
+//Compare information
+void compare(vector<int> sleeping_vector, vector<int> walking_vector){
+    //Print individual's information and data average information
+    cout << "Your information will be compared to hardcoded information, meaning that it may be outdated." << endl
+    << "Your average sleeping hours: " << average(sleeping_vector) << endl
+    << "Your average steps: " << average(walking_vector) << endl
+    << "Data average sleeping hours: ______" << endl
+    << "Data average steps: ______" << endl;
+    //Call menu function
+    choose_operation(sleeping_vector, walking_vector);
+}
 
-Start personal_walking(walking_array)
-	Print that this will look at personal walking data
-Print all 7 days of data in walking_array to the user
-Call average(walking_array) function
-Print average for the user
-Call graph() function
-Call menu() function
-End personal_walking(walking_array)
+//Tips on how to improve health
+void improve_health(){
+    //Print information
+    cout << "Here is some information to help improve your health!" << endl
+    << "______" << endl;
+    choose_operation(sleeping_vector, walking_vector);
 
-Start graph(array)
-End graph(array)
+}
 
-Start compare(sleeping_array, walking_array)
-	Print that this will compare personal data to outside data
-Print statement that says that this outside data is hardcoded and may be out of data, depending on when this program was last updated
-Print average(sleeping_array) with introduction
-Print average(walking_array) with introduction
-Print overall average sleeping hours
-Print overall average walking steps
-Call graph() and add both sets of data
-Call menu() function
-End compare(sleeping_array, walking_array)
+//Print information on the Sleep Walk App
+void sleep_walk_app(){
+    //Print information
+    cout << "______" << endl;
+    choose_operation(sleeping_vector, walking_vector);
 
-Start improve_health()
-	Print introduction statement to this section
-	Print list of websites for health, stores, and mental health information
-End improve_health()
+}
 
-Start sleep_walk_app()
-	Print what this app is and why it was created
-End sleep_walk_app()
+void sources(){
+    //Print information
+    cout << "______" << endl;
+    choose_operation(sleeping_vector, walking_vector);
 
-Start sources()
-	Print sources used
-End sources()
-
- */
-
-
+}

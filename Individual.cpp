@@ -5,61 +5,103 @@ Lab Assignment #13 - rumoro_theresa_lab13
  Person.cpp
 */
 
-////Include needed libraries
-//#include "Person.h"
-//#include <string>
-//#include <iostream>
-//using namespace std;
-//
-////Empty class constructor for person
-//Person::Person()
-//{}
-//
-////Constructor that takes in year and defines it
-//Person::Person(int b_year)
-//        : birth_year{b_year}
-//{}
-//
-////Constructor that takes in year and location and defines them
-//Person::Person(int b_year, std::string loc)
-//        : birth_year{b_year}, location{loc}
-//{}
-//
-////Constructor that takes in year, location, and name and defines them
-//Person::Person(int b_year, std::string loc, std::string p_name)
-//        : birth_year{b_year}, location{loc}, person_name{p_name}
-//{}
-//
-////Set birth year will direct the birth year to go here
-//void Person::set_birth_year(int b_year){
-//    this -> birth_year = b_year;
-//}
-////Set location will direct the location to go here
-//void Person::set_location(std::string loc){
-//    this -> location = loc;
-//}
-//
-////Set name will direct the name to go here
-//void Person::set_person_name(std::string p_name){
-//    this -> person_name = p_name;
-//}
-//
-////This will return the birth year
-//int Person::get_person_year(){
-//    return this -> birth_year;
-//}
-////This will return the location
-//std::string Person::get_person_location(){
-//    return this -> location;
-//}
-////This will return the person's name
-//std::string Person::get_person_name(){
-//    return this -> person_name;
-//}
-//
-////Print out data of Person
-//void Person::report_person_data(){
-//    cout << "\tPerson Name: " << get_person_name() << endl;
-//    cout << "\tBirthday: " << get_person_year() << endl;
-//    cout << "\tLocation Information: " << get_person_location() << endl << endl;
-//}
+//Include needed libraries
+#include "Individual.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+//Empty class constructor for Individual
+Individual::Individual()
+{}
+
+Individual::Individual(std::string, std::string, std::string, int){}
+
+//Set first name
+void Individual::set_first_name(std::string firstname) {
+    this -> first_name = firstname;
+}
+//Set last name
+void Individual::set_last_name(std::string lastname){
+    this -> last_name = lastname;
+}
+//Set nickname
+void Individual::set_nickname(std::string othername){
+    this -> nickname = othername;
+}
+//Set age
+void Individual::set_age(int individual_age){
+    this -> age = individual_age;
+}
+
+//Return first name
+std::string Individual::get_first_name() {
+    return this -> first_name;
+}
+//Return last name
+std::string Individual::get_last_name(){
+    return this -> last_name;
+}
+//Return nickname
+std::string Individual::get_nickname() {
+    return this -> nickname;
+}
+//Return age
+int Individual::get_age(){
+    return this -> age;
+}
+
+//Establish Individual's first name
+std::string Individual::establish_first_name(){
+    //Prompt user for the individual's first name
+    cout << "Please enter your first name: " << endl;
+    //Create variable fname
+    std::string fname;
+    //Send user's feedback to fname variable
+    cin >> fname;
+    //Return fname variable
+    return fname;
+}
+
+//Establish Individual's last name
+std::string Individual::establish_last_name(){
+    //Prompt user for the individual's last name
+    cout << "Please enter your last name: " << endl;
+    //Create variable lname
+    std::string lname;
+    //Send user's feedback to lname variable
+    cin >> lname;
+    //Return lname variable
+    return lname;
+}
+
+//Establish Individual's nickname
+std::string Individual::establish_nickname(){
+    //Prompt user for the individual's nickname
+    cout << "Please enter your nickname: " << endl;
+    //Create variable nname
+    std::string nname;
+    //Send user's feedback to nname variable
+    cin >> nname;
+    //Return nname variable
+    return nname;
+}
+
+//Establish Individual's age
+int Individual::establish_age(){
+    //Prompt user for the individual's age
+    cout << "Please enter your age: " << endl;
+    //Create variable age
+    int age;
+    //Send user's feedback to age variable
+    cin >> age;
+    //Return age variable
+    return age;
+}
+
+//Print out data of Person
+void Individual::print_individual_information() {
+    cout << "\tPerson Name: " << get_first_name() << " " << get_last_name() << endl;
+    cout << "\tNickname: " << get_nickname() << endl;
+    cout << "\tAge: " << get_age() << endl << endl;
+}

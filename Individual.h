@@ -5,48 +5,52 @@ Lab Assignment #13 - rumoro_theresa_lab13
  Person.h
 */
 
-////Include needed libraries
-//#include <string>
-//#include <iostream>
-//using namespace std;
-//
-//#ifndef RUMORO_THERESA_LAB9_3__PERSON_H
-//#define RUMORO_THERESA_LAB9_3__PERSON_H
-//
-//class Person {
-//
-//public:
-//    //Constructor for a person, no information given about them, just the shell of it
-//    Person();
-//    //Constructor for a person with only a birth year given
-//    Person(int);
-//    //Constructor for a person with a birth year and location
-//    Person(int, std::string);
-//    //Constructor for a person with a birth year, location, and name
-//    Person(int, std::string, std::string);
-//
-//    //Print out data of Person
-//    void report_person_data();
-//
-//    //Get person's birth year is public (method)
-//    int get_person_year();
-//    //Get person's name is public (method)
-//    std::string get_person_name();
-//    //Get person's location is public (method)
-//    std::string get_person_location();
-//
-//protected:
-//    //Set birth year, location, and person name with correct variable information
-//    void set_birth_year(int);
-//    void set_location(std::string);
-//    void set_person_name(std::string);
-//
-//    //Moved from private so information can be added or changed
-//    std::string location;
-//    int birth_year = 2022;
-//    std::string person_name;
-//
-//private:
-//};
-//
-//#endif //RUMORO_THERESA_LAB9_3__PERSON_H
+//Include needed libraries
+#include <string>
+#include <iostream>
+using namespace std;
+
+#ifndef RUMORO_THERESA_SLEEP_WALK_APP_INDIVIDUAL_H
+#define RUMORO_THERESA_SLEEP_WALK_APP_INDIVIDUAL_H
+
+class Individual {
+
+public:
+    //Constructor for a person, no information given about them, just the shell of it
+    Individual();
+
+    Individual(std::string, std::string, std::string, int);
+
+    //Print out data of Person
+    void print_individual_information();
+
+    //Get first name
+    std::string get_first_name();
+    //Get last name
+    std::string get_last_name();
+    //Get nickname
+    std::string get_nickname();
+    //Get age
+    int get_age();
+
+protected:
+    //Set first name, last name, nickname, and age
+    void set_first_name(std::string);
+    void set_last_name(std::string);
+    void set_nickname(std::string);
+    void set_age(int);
+
+    //Create variables for first name, last name, and nickname
+    std::string first_name;
+    std::string last_name;
+    std::string nickname;
+    int age;
+
+    //Establish information not given
+    std::string establish_first_name();
+    std::string establish_last_name();
+    std::string establish_nickname();
+    int establish_age();
+};
+
+#endif //RUMORO_THERESA_SLEEP_WALK_APP_INDIVIDUAL_H
